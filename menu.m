@@ -828,8 +828,8 @@ static NSString *kTabIcons[] = {
     for (SidebarButton *b in _sidebarButtons) {
         [b setActive:(b.tab == tab) animated:animated];
     }
-    [_navBar setTabTitle:[NSString stringWithUTF8String:kTabNames[tab]]
-               iconName:[NSString stringWithUTF8String:kTabIcons[tab].UTF8String]];
+    [_navBar setTabTitle:kTabNames[tab]
+               iconName:kTabIcons[tab]];
 
     void (^update)(void) = ^{
         if (tab == MenuTabProfile) {
