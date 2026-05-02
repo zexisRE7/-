@@ -167,6 +167,3 @@ static UIButton *_triggerButton = nil;
         %init;
     }
 }
-
-%dtor {
-    NSLog(@"[CheatMenu] dylib unloaded.");
