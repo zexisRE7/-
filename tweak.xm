@@ -9,7 +9,7 @@
 // ── Preference keys ──────────────────────────────────────────────────────────
 #define kPrefDomain  @"com.cheatmenu.prefs"
 
-static inline BOOL PrefBool(NSString *key, BOOL def) {
+static inline BOOL __attribute__((unused)) PrefBool(NSString *key, BOOL def) {
     NSDictionary *d = [NSDictionary dictionaryWithContentsOfFile:
         [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", kPrefDomain]];
     return d[key] ? [d[key] boolValue] : def;
@@ -170,4 +170,3 @@ static UIButton *_triggerButton = nil;
 
 %dtor {
     NSLog(@"[CheatMenu] dylib unloaded.");
-}
