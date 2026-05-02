@@ -1,0 +1,25 @@
+name: Build Dylib
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: randomblock1/theos-action@v1
+        with:
+          bootstrap: rootless
+      
+      - name: Build package
+        run: make package
+        
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CleanMenu
+          path: packages/*.deb
